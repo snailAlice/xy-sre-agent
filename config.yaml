@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+log:
+  level: info
+
+http:
+  timeout: 30s
+
+alertmanager:
+  url: http://alertmanager.monitoring.svc:9093
+  token: ""
+  poll_interval: 0s
+  dedupe_ttl: 30m
+  max_alerts_per_webhook: 20
+
+prometheus:
+  url: http://prometheus.monitoring.svc:9090
+  token: ""
+
+deepseek:
+  api_key: ${DEEPSEEK_API_KEY}
+  base_url: https://api.deepseek.com
+  model: deepseek-chat
+  timeout: 120s
+  max_retries: 2
+
+feishu:
+  event_mode: websocket
+  app_id: ""
+  app_secret: ""
+  bot_token: "https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxx"
+  verification_token: ""
+  event_secret: ""
+  api_base_url: https://open.feishu.cn
+
+kubernetes:
+  kubeconfig: ""
+  default_namespace: default
+  log_tail_lines: 200
+
+agent:
+  memory_ttl: 12h
+  max_history: 20
