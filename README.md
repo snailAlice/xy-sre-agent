@@ -73,9 +73,9 @@ receivers:
 ```yaml
 feishu:
   event_mode: websocket
-  app_id: cli_a93890863bb81cd6
-  app_secret: qMugZMRqmYuIDcgaBW5UNd40lrpeFJXs
-  bot_token: https://open.feishu.cn/open-apis/bot/v2/hook/9e2b50a2-7749-4a1a-8644-eeebf134825a
+  app_id: 
+  app_secret: 
+  bot_token: https://open.feishu.cn/open-apis/bot/v2/hook/xxxxx
   verification_token: xxx
   event_secret: xxx
 ```
