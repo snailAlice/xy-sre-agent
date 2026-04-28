@@ -21,7 +21,7 @@ prometheus:
 deepseek:
   api_key: ${DEEPSEEK_API_KEY}
   base_url: https://api.deepseek.com
-  model: deepseek-chat
+  model: deepseek-v4-pro
   timeout: 120s
   max_retries: 2
 

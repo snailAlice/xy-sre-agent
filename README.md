@@ -102,17 +102,6 @@ feishu:
 - 不要开启事件加密；当前长连接接收器按明文事件处理。
 - 服务所在机器需要能访问飞书开放平台公网。
 
-环境变量也支持飞书/Lark 两套命名：
-
-```bash
-export LARK_EVENT_MODE="websocket"
-export LARK_APP_ID="cli_xxx"
-export LARK_APP_SECRET="xxx"
-# 可选
-export LARK_BOT_TOKEN="xxx"
-export LARK_VERIFICATION_TOKEN="xxx"
-export LARK_EVENT_SECRET="xxx"
-```
 
 ## Kubernetes 权限
 
