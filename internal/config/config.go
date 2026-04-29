@@ -167,6 +167,11 @@ func (c *Config) applyEnvOverrides() {
 			c.Server.Port = p
 		}
 	}
+	if v := os.Getenv("HTTP_TIMEOUT"); v != "" {
+		if timeout, err := time.ParseDuration(v); err == nil {
+			c.HTTP.Timeout = timeout
+		}
+	}
 	if v := os.Getenv("ALERTMANAGER_URL"); v != "" {
 		c.Alertmanager.URL = v
 	}
@@ -187,6 +192,16 @@ func (c *Config) applyEnvOverrides() {
 	}
 	if v := os.Getenv("DEEPSEEK_MODEL"); v != "" {
 		c.DeepSeek.Model = v
+	}
+	if v := os.Getenv("DEEPSEEK_TIMEOUT"); v != "" {
+		if timeout, err := time.ParseDuration(v); err == nil {
+			c.DeepSeek.Timeout = timeout
+		}
+	}
+	if v := os.Getenv("DEEPSEEK_MAX_RETRIES"); v != "" {
+		if maxRetries, err := strconv.Atoi(v); err == nil {
+			c.DeepSeek.MaxRetries = maxRetries
+		}
 	}
 	if v := firstEnv("FEISHU_EVENT_MODE", "LARK_EVENT_MODE"); v != "" {
 		c.Feishu.EventMode = v

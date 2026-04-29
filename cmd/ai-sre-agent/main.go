@@ -36,8 +36,10 @@ func main() {
 	slog.SetDefault(logger)
 
 	httpClient := &http.Client{Timeout: cfg.HTTP.Timeout}
+	// internal/llm applies cfg.DeepSeek.Timeout per request with context.
+	llmHTTPClient := &http.Client{}
 	alertClient := alertmanager.NewClient(cfg.Alertmanager, httpClient, logger)
-	llmClient := llm.NewClient(cfg.DeepSeek, httpClient, logger)
+	llmClient := llm.NewClient(cfg.DeepSeek, llmHTTPClient, logger)
 	feishuClient := feishu.NewClient(cfg.Feishu, httpClient, logger)
 	memStore := memory.NewInMemoryStore(cfg.Agent.MemoryTTL, cfg.Agent.MaxHistory)
 
